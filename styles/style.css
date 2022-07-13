@@ -1,0 +1,16 @@
+#container-for-etchasketch{
+    border: 1px solid red;
+    display: flex;
+    height: 480px;
+    width: 512px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-evenly;
+    background-color: rgb(red, green, blue);
+}
+
+.square{
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+}
