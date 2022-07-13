@@ -9,7 +9,7 @@ buttonForNumberOfSquares.addEventListener('click', (number) => {
     if(number > 100){
         alert(`Maximum number of squares is 100!`);
     }else{
-
+        creatingSquares(number);
     }
 });
 

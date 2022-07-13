@@ -1,7 +1,13 @@
+#number-of-squares{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: large;
+}
+
 #container-for-etchasketch{
     border: 1px solid red;
     display: flex;
-    height: 480px;
     width: 512px;
     flex-wrap: wrap;
     margin: auto;
@@ -14,3 +20,4 @@
     width: 30px;
     border: 1px solid black;
 }
+
