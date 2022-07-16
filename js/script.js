@@ -9,6 +9,7 @@ buttonForNumberOfSquares.addEventListener('click', (number) => {
     if(number > 100){
         alert(`Maximum number of squares is 100!`);
     }else{
+        resetingSquares();
         creatingSquares(number);
     }
 });
@@ -19,7 +20,7 @@ function creatingSquares(number){
         container.appendChild(square);
         square.classList.add('square');
         container.style.gridTemplateColumns = `repeat(${number}, auto)`;
-        container.style.gridTemplateRows = `repeat(${number}, auto)`;
+        container.style.gridTemplateRows = `repeat(${number}, 1fr)`;
         coloringSquares(square);
     };
 };
@@ -29,6 +30,13 @@ function coloringSquares(squares){
         squares.style.backgroundColor = 'black';
     });
 };
+
+function resetingSquares(){
+    let squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        container.removeChild(square);
+    });
+}
 
 function randomisingColors(){
     let R = Math.floor(Math.random() * 255),
