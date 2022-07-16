@@ -1,6 +1,9 @@
 let container = document.getElementById('container-for-etchasketch');
 
 let buttonForNumberOfSquares = document.getElementById('number-of-squares');
+let buttonForReset = document.getElementById('reset');
+let buttonForClear = document.getElementById('clear');
+let buttonForRainbow = document.getElementById('rainbow-mode');
 
 creatingSquares(16);
 
@@ -9,9 +12,18 @@ buttonForNumberOfSquares.addEventListener('click', (number) => {
     if(number > 100){
         alert(`Maximum number of squares is 100!`);
     }else{
-        resetingSquares();
+        resetingSquares(); //had to do this since it creates new squares on top of the number of old squares
         creatingSquares(number);
     }
+});
+
+buttonForReset.addEventListener('click', () => {
+    resetingSquares();
+    creatingSquares(16);
+});
+
+buttonForClear.addEventListener('click', () => {
+    clearingSquares();
 });
 
 function creatingSquares(number){
@@ -20,14 +32,23 @@ function creatingSquares(number){
         container.appendChild(square);
         square.classList.add('square');
         container.style.gridTemplateColumns = `repeat(${number}, auto)`;
-        container.style.gridTemplateRows = `repeat(${number}, 1fr)`;
-        coloringSquares(square);
+        container.style.gridTemplateRows = `repeat(${number}, auto)`;
+        buttonForRainbow.addEventListener('click', () => {
+            coloringSquaresRainbow(square);
+        });
+        coloringSquaresBlack(square);
     };
 };
 
-function coloringSquares(squares){
+function coloringSquaresBlack(squares){
     squares.addEventListener('mouseenter', () => {
         squares.style.backgroundColor = 'black';
+    });
+};
+
+function coloringSquaresRainbow(squares){
+    squares.addEventListener('mouseenter', () => {
+        squares.style.backgroundColor = randomisingColors();
     });
 };
 
@@ -35,6 +56,13 @@ function resetingSquares(){
     let squares = document.querySelectorAll('.square');
     squares.forEach(square => {
         container.removeChild(square);
+    });
+}
+
+function clearingSquares(){
+    let squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.style.backgroundColor = 'white';
     });
 }
 
