@@ -1,23 +1,23 @@
-#number-of-squares{
+body{
     display: flex;
-    justify-content: center;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#number-of-squares{
     font-size: large;
 }
 
 #container-for-etchasketch{
     border: 1px solid red;
-    display: flex;
-    width: 512px;
-    flex-wrap: wrap;
+    display: grid;
+    height: 60%;
+    width: 60%;
     margin: auto;
-    justify-content: space-evenly;
-    background-color: rgb(red, green, blue);
 }
 
 .square{
-    height: 30px;
-    width: 30px;
     border: 1px solid black;
 }
 

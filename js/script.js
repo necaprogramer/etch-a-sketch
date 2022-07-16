@@ -18,6 +18,8 @@ function creatingSquares(number){
         let square = document.createElement('div');
         container.appendChild(square);
         square.classList.add('square');
+        container.style.gridTemplateColumns = `repeat(${number}, 5fr)`;
+        container.style.gridTemplateRows = `repeat(${number}, 5fr)`;
         coloringSquares(square);
     };
 };
