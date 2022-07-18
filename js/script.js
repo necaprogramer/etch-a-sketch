@@ -50,19 +50,21 @@ function creatingSquares(number){
 function coloringSquaresBlack(squares){
     squares.addEventListener('mouseenter', () => {
         squares.style.backgroundColor = 'black';
+        squares.style.opacity = '1'; //since if FadingSquares function is active it applies the opacity of it to all other functions as well
     });
 };
 
 function coloringSquaresRainbow(squares){
     squares.addEventListener('mouseenter', () => {
         squares.style.backgroundColor = randomisingColors();
+        squares.style.opacity = '1'; //since if FadingSquares function is active it applies the opacity of it to all other functions as well
     });
 };
 
 function FadingSquares(squares){
     let opacityIncrement = 0;
     squares.addEventListener('mouseenter', () => {
-        if(opacityIncrement <= 0.9){
+        if(opacityIncrement < 0.9){
             opacityIncrement += 0.1;
         }
         squares.style.backgroundColor = 'black';
@@ -81,6 +83,7 @@ function clearingSquares(){
     let squares = document.querySelectorAll('.square');
     squares.forEach(square => {
         square.style.backgroundColor = 'white';
+        square.style.opacity = '1';
     });
 }
 
