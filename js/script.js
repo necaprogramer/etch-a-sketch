@@ -4,6 +4,8 @@ let buttonForNumberOfSquares = document.getElementById('number-of-squares');
 let buttonForReset = document.getElementById('reset');
 let buttonForClear = document.getElementById('clear');
 let buttonForRainbow = document.getElementById('rainbow-mode');
+let buttonForPlainColoring = document.getElementById('plain-coloring');
+let buttonForFaddingIn = document.getElementById('fade-in');
 
 creatingSquares(16);
 
@@ -36,7 +38,12 @@ function creatingSquares(number){
         buttonForRainbow.addEventListener('click', () => {
             coloringSquaresRainbow(square);
         });
-        coloringSquaresBlack(square);
+        buttonForPlainColoring.addEventListener('click', () => {
+            coloringSquaresBlack(square);
+        });
+        buttonForFaddingIn.addEventListener('click', () => {
+            FadingSquares(square);
+        });
     };
 };
 
@@ -51,6 +58,17 @@ function coloringSquaresRainbow(squares){
         squares.style.backgroundColor = randomisingColors();
     });
 };
+
+function FadingSquares(squares){
+    let opacityIncrement = 0;
+    squares.addEventListener('mouseenter', () => {
+        if(opacityIncrement <= 0.9){
+            opacityIncrement += 0.1;
+        }
+        squares.style.backgroundColor = 'black';
+        squares.style.opacity = `${opacityIncrement}`;
+    });
+}
 
 function resetingSquares(){
     let squares = document.querySelectorAll('.square');
